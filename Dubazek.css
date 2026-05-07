@@ -1,7 +1,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
  :root {
-      --navy: #0a1628;
-      --navy-mid: #112240;
+      --navy: #b7b9bd;
+      --navy-mid: #4d836e;
       --navy-light: #1a3560;
       --gold: #c9a84c;
       --gold-light: #e8c96a;
@@ -88,17 +88,27 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=80');
+      background-image: url('images/office\ background.jpg');
       background-size: cover; background-position: center;
-      transform: scale(1.05);
-      transition: transform 8s ease;
+      transition: transform 1.2s ease-in-out;
+    }
+    .hero-bg.slide-in {
+      animation: slideIn 1.2s ease-in-out forwards;
+    }
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%) scale(1.05);
+      }
+      to {
+        transform: translateX(0) scale(1.05);
+      }
     }
     .hero-bg::after {
       content: '';
       position: absolute; inset: 0;
       background: linear-gradient(160deg, rgba(10,22,40,0.82) 0%, rgba(10,22,40,0.65) 60%, rgba(17,34,64,0.90) 100%);
     }
-    #hero:hover .hero-bg { transform: scale(1.0); }
+    #hero:hover .hero-bg:not(.slide-in) { transform: scale(1.0); }
 
     .hero-content {
       position: relative; z-index: 2;

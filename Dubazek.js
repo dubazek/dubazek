@@ -125,10 +125,38 @@
   // ── HERO PARALLAX ──
   function animateHeroParallax(scrollY) {
     if (!heroBg) return;
-    if (scrollY < window.innerHeight) {
+    // Only apply parallax when not animating (at the very start)
+    if (scrollY < 100 && !heroBg.classList.contains('carousel-slide')) {
       heroBg.style.transform = `scale(1.05) translateY(${scrollY * 0.25}px)`;
     }
   }
+
+  // ── HERO BACKGROUND ROTATION ──
+  const backgroundImages = [
+    'images/office\ background.jpg',
+    'images/office\ background1.jpg',
+    'images/office\ background2.jpg',
+    'images/office\ background3.jpg'
+  ];
+
+  function startHeroBackgroundRotation() {
+    if (!heroBg) return;
+    let currentIndex = 0;
+    const rotationInterval = 6000; // Change image every 6 seconds
+    const animationDuration = 1200; // Animation duration in ms
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % backgroundImages.length;
+      heroBg.classList.remove('carousel-slide');
+      
+      setTimeout(() => {
+        heroBg.style.backgroundImage = `url('${backgroundImages[currentIndex]}')`;
+        heroBg.classList.add('carousel-slide');
+      }, 30);
+    }, rotationInterval);
+  }
+
+  startHeroBackgroundRotation();
 
   // ── INITIAL UI STATE ──
   updateActiveNav(window.scrollY);
