@@ -133,10 +133,7 @@
 
   // ── HERO BACKGROUND ROTATION ──
   const backgroundImages = [
-    'images/office\ background.jpg',
-    'images/office\ background1.jpg',
-    'images/office\ background2.jpg',
-    'images/office\ background3.jpg'
+    'images/hero\ background.jpg',
   ];
 
   function startHeroBackgroundRotation() {

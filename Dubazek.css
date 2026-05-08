@@ -1,7 +1,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
  :root {
-      --navy: #b7b9bd;
-      --navy-mid: #4d836e;
+      --navy: #0f1520;
+      --navy-mid: #d5d0db;
       --navy-light: #1a3560;
       --gold: #c9a84c;
       --gold-light: #e8c96a;
@@ -88,7 +88,7 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('images/office\ background.jpg');
+      background-image: url('images/hero\ background.jpg');
       background-size: cover; background-position: center;
       transition: transform 1.2s ease-in-out;
     }
