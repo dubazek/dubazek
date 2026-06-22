@@ -165,43 +165,61 @@
 <!-- ══ CONTACT ══ -->
 <section id="contact">
   <div class="contact-inner">
-    <div class="contact-form-wrap">
+    
+    <!-- CHANGED: This was a <div>, now it is a Netlify tracking form -->
+    <form name="business-contact" method="POST" data-netlify="true" class="contact-form-wrap">
+      
+      <!-- HIDDEN INPUT: Helps Netlify read your form structure upon deployment -->
+      <input type="hidden" name="form-name" value="business-contact" />
+
       <div class="section-label reveal">Get In Touch</div>
       <h2 class="section-title reveal reveal-delay-1">Let's Work <em>Together</em></h2>
       <p class="reveal reveal-delay-1" style="font-size:14.5px;color:#5a6a7e;margin-bottom:32px;line-height:1.8">
         Tell us about your project or requirement. Our team will respond within one business day.
       </p>
+      
       <div class="form-row reveal reveal-delay-2">
         <div class="form-group">
           <label for="fname">First Name</label>
-          <input type="text" id="fname" placeholder="Chukwuemeka" />
+          <!-- FIXED: Added name="first_name" and required -->
+          <input type="text" id="fname" name="first_name" placeholder="Chukwuemeka" required />
         </div>
         <div class="form-group">
           <label for="lname">Last Name</label>
-          <input type="text" id="lname" placeholder="Okonkwo" />
+          <!-- FIXED: Added name="last_name" and required -->
+          <input type="text" id="lname" name="last_name" placeholder="Okonkwo" required />
         </div>
       </div>
+      
       <div class="form-group reveal reveal-delay-2">
         <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="you@company.com" />
+        <!-- FIXED: Added name="email" and required -->
+        <input type="email" id="email" name="email" placeholder="you@company.com" required />
       </div>
+      
       <div class="form-group reveal reveal-delay-3">
         <label for="service">Service of Interest</label>
-        <select id="service">
+        <!-- FIXED: Added name="service" -->
+        <select id="service" name="service">
           <option value="">— Select a service —</option>
-          <option>Administrative Consultancy</option>
-          <option>Office Equipment & Stationery</option>
-          <option>Business Centre</option>
-          <option>Training & Capacity Building</option>
-          <option>Other</option>
+          <option value="Administrative Consultancy">Administrative Consultancy</option>
+          <option value="Office Equipment & Stationery">Office Equipment & Stationery</option>
+          <option value="Business Centre">Business Centre</option>
+          <option value="Training & Capacity Building">Training & Capacity Building</option>
+          <option value="Other">Other</option>
         </select>
       </div>
+      
       <div class="form-group reveal reveal-delay-3">
         <label for="message">Message</label>
-        <textarea id="message" placeholder="Tell us about your needs…"></textarea>
+        <!-- FIXED: Added name="message" and required -->
+        <textarea id="message" name="message" placeholder="Tell us about your needs…" required></textarea>
       </div>
-      <button class="btn-primary reveal reveal-delay-4" onclick="handleSubmit()" style="width:100%;display:block;text-align:center">Send Message</button>
-    </div>
+      
+      <!-- FIXED: Changed to type="submit" and removed inline onclick handler -->
+      <button type="submit" class="btn-primary reveal reveal-delay-4" style="width:100%;display:block;text-align:center">Send Message</button>
+      
+    </form>
 
     <div class="contact-info-wrap reveal reveal-delay-1">
       <div class="map-wrap">
