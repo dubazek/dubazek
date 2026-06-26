@@ -158,3 +158,27 @@
   // ── INITIAL UI STATE ──
   updateActiveNav(window.scrollY);
   updateBackTop(window.scrollY);
+  // Netlify Form Submission Handler
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevents the Netlify 404 page redirect
+
+    const formData = new FormData(contactForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        alert("Thank you! Your message was submitted successfully.");
+        contactForm.reset(); // Clears the form fields after successful sending
+      })
+      .catch((error) => {
+        alert("Submission error: " + error);
+      });
+  });
+}
+
